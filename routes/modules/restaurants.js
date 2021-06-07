@@ -82,5 +82,43 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.post('/sort', function (req, res) {
+  const sortOption = req.body.sort
+  if (sortOption === '0') {
+    Restaurant.find()
+      .lean()
+      .then(restaurants => res.render('index', { restaurants, sortOption }))
+      .catch(error => console.error(error))
+  }
+  if (sortOption === '1') {
+    Restaurant.find()
+      .lean()
+      .sort({ _id: 'desc' })
+      .then(restaurants => res.render('index', { restaurants, sortOption }))
+      .catch(error => console.error(error))
+  }
+  if (sortOption === '2') {
+    Restaurant.find()
+      .lean()
+      .sort({ _id: 'asc' })
+      .then(restaurants => res.render('index', { restaurants, sortOption }))
+      .catch(error => console.error(error))
+  }
+  if (sortOption === '3') {
+    Restaurant.find()
+      .lean()
+      .sort({ category: 'asc' })
+      .then(restaurants => res.render('index', { restaurants, sortOption }))
+      .catch(error => console.error(error))
+  }
+  if (sortOption === '4') {
+    Restaurant.find()
+      .lean()
+      .sort({ rating: -1 })
+      .then(restaurants => res.render('index', { restaurants, sortOption }))
+      .catch(error => console.error(error))
+  }
+})
+
 // export route module
 module.exports = router
