@@ -1,0 +1,107 @@
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<div class="container mx-auto">
+  <form action="/restaurants" method="POST" class="needs-validation" novalidate>
+    <div class="form-row d-flex justify-content-center">
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-utensils mr-2"></i>餐廳名稱</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder=" 請輸入名稱 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入餐廳名稱！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-tag mr-2"></i>餐廳分類</label>
+        <input type="text" class="form-control" id="category" name="category" placeholder=" 請輸入分類 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入餐廳分類！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-image mr-2"></i>照片</label>
+        <input type="url" class="form-control" id="image" name="image" placeholder=" 請輸入圖片網址 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入照片網址(格式須為網址)！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-thumbtack mr-2"></i>地址</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder=" 請輸入地址 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入餐廳地址！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-phone-volume mr-2"></i>電話</label>
+        <input type="text" class="form-control" id="phone" name="phone" placeholder=" 請輸入電話 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入餐廳電話！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-map-marked-alt mr-2"></i>Google Map 網址</label>
+        <input type="url" class="form-control" id="google_map" name="google_map" placeholder=" 請輸入 Google Map 網址 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請輸入 Google-Map 網址(格式須為網址)！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="formGroupExampleInput"><i class="fas fa-star mr-2"></i>評分</label>
+        <input type="number" min="0.1" max="5.0" step="0.1" class="form-control" id="rating" name="rating" placeholder=" 請輸入評分 ..." required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          此為必填欄位，請選擇評分！
+        </div>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="exampleFormControlTextarea1"><i class="fas fa-info mr-2"></i>餐廳簡介</label>
+        <textarea class="form-control" id="description" name="description" rows="3" ></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-info col-8">新增</button>
+
+    </div>
+
+  </form>
+</div>
+
+<script>
+  // bootstrap validation
+  (function () {
+    'use strict';
+    const buttonSubmit = document.querySelector('.btn-info')
+    buttonSubmit.addEventListener('click', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
