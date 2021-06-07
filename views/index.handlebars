@@ -14,7 +14,7 @@
     </div>
   </div>
   <form class="form-group sort" id="sort" action="/restaurants/sort" method="POST">
-    <select class="form-control" id="sortForm" name="sort" onchange="this.form.submit()">
+    <select class="form-control form-control-sm" id="sortForm" name="sort" onchange="this.form.submit()">
       <option name="0" value="0" {{#if (eq sortOption '0' ) }} selected {{/if}}>選擇排序方式</option>
       <option name="1" value="1" {{#if (eq sortOption '1' ) }} selected {{/if}}>上架時間（新 -> 舊）</option>
       <option name="2" value="2" {{#if (eq sortOption '2' ) }} selected {{/if}}>上架時間（舊 -> 新）</option>

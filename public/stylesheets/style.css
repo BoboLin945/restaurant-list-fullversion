@@ -90,6 +90,7 @@ header {
   .restaurant-show-title {
     font-size: 2rem;
   }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -191,6 +192,10 @@ header {
 @media screen and (max-width: 768px) {
   .restaurant-show-title {
     font-size: 2rem;
+  }
+  .sort {
+    margin-top: 15px;
+    width: 500px;
   }
 }
 
