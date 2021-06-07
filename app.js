@@ -38,7 +38,7 @@ app.get('/restaurants/new', (req, res) => {
 })
 
 // Search
-app.get('/search', (req, res) => {
+app.get('/restaurants/search', (req, res) => {
   const keyword = req.query.keyword
   const regex = new RegExp(keyword, 'i') // i for case insensitive
   Restaurant.find({ $or: [{ name: { $regex: regex } }, { category: { $regex: regex } }] })
