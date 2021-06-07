@@ -175,3 +175,12 @@ header {
     font-size: 2rem;
   }
 }
+
+.form-group i {
+  color: rgb(240, 117, 10);
+}
+
+.form-group label {
+  letter-spacing: 1px;
+}
+
