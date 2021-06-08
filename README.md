@@ -1,7 +1,7 @@
-<!-- ABOUT THE PROJECT 2-3 A6: 餐廳清單擴充 CRUD 功能 -->
-## :bento: 餐廳清單擴充 CRUD 
+<!-- ABOUT THE PROJECT 2-3 A8: 重構餐廳清單 -->
+## :page_facing_up: 重構餐廳清單 
 
-### :monocle_face: Features
+### :heavy_check_mark: Features
 
 1. 使用者可以從首頁瀏覽所有餐廳列表
   * 照片
@@ -9,7 +9,7 @@
   * 分類
   * 評分
 
-![image](restaurant-list-CRUD-index.png)
+![image](restaurant-list-index.png)
   
 2. 使用者可以點擊餐廳圖片瀏覽餐廳詳細資訊
   * 照片
@@ -23,11 +23,13 @@
 
 4. 使用者可以從首頁點擊「新增」，新增一家餐廳
 
-![image](restaurant-list-CRUD-new.png)
+![image](restaurant-list-new.png)
 
 5. 使用者點擊「Edit」可以修改一家餐廳的資訊
 
 6. 使用者點擊「Delete」可以刪除一家餐廳
+
+7. 使用者可以根據「上架時間」、「分類」、「評分」排序方式瀏覽所有餐廳
 
 
 <!-- GETTING STARTED -->
@@ -35,7 +37,7 @@
 
 #### Clone repository
 ```
-$ git clone https://github.com/BoboLin945/restaurant_list_CRUD.git
+$ git clone https://github.com/BoboLin945/restaurant_list_A8.git
 ```
 #### Install by npm
 ```
@@ -62,3 +64,5 @@ http://localhost:3000/
 * [Express-Handlebars](https://www.npmjs.com/package/express-handlebars) (^5.3.2)
 * [Bootstrap](https://getbootstrap.com) (^4.3.1)
 * [mongoose](https://mongoosejs.com/) (^5.12.11)
+* [just-handlebars-helpers] (^1.0.18)
+* [method-override] (^3.0.0)

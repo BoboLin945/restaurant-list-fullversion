@@ -1,8 +1,8 @@
 <!-- search bar -->
-<div class="container search-bar sort-bar function-bar">
+<div class="container search-bar">
   <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/restaurants/search">
+    <div class="search-bar-inner function-bar d-flex justify-content-around flex-wrap">
+      <form class="search" action="/restaurants/search">
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
             value="{{ keyword }}" aria-describedby="search-button">
@@ -11,17 +11,17 @@
           </div>
         </div>
       </form>
+      <form class="form-group sort" id="sort" action="/restaurants/sort" method="POST">
+        <select class="form-control" id="sortForm" name="sort" onchange="this.form.submit()">
+          <option name="0" value="0" {{#if (eq sortOption '0' ) }} selected {{/if}}>選擇排序方式</option>
+          <option name="1" value="1" {{#if (eq sortOption '1' ) }} selected {{/if}}>上架時間（新 -> 舊）</option>
+          <option name="2" value="2" {{#if (eq sortOption '2' ) }} selected {{/if}}>上架時間（舊 -> 新）</option>
+          <option name="3" value="3" {{#if (eq sortOption '3' ) }} selected {{/if}}>按分類排序</option>
+          <option name="4" value="4" {{#if (eq sortOption '4' ) }} selected {{/if}}>評價（高 -> 低）</option>
+        </select>
+      </form>
     </div>
   </div>
-  <form class="form-group sort" id="sort" action="/restaurants/sort" method="POST">
-    <select class="form-control form-control-sm" id="sortForm" name="sort" onchange="this.form.submit()">
-      <option name="0" value="0" {{#if (eq sortOption '0' ) }} selected {{/if}}>選擇排序方式</option>
-      <option name="1" value="1" {{#if (eq sortOption '1' ) }} selected {{/if}}>上架時間（新 -> 舊）</option>
-      <option name="2" value="2" {{#if (eq sortOption '2' ) }} selected {{/if}}>上架時間（舊 -> 新）</option>
-      <option name="3" value="3" {{#if (eq sortOption '3' ) }} selected {{/if}}>按分類排序</option>
-      <option name="4" value="4" {{#if (eq sortOption '4' ) }} selected {{/if}}>評價（高 -> 低）</option>
-    </select>
-  </form>
 </div>
 
 <!-- restaurant list -->
