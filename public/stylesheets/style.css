@@ -235,7 +235,7 @@ body {
     text-align: left;
 }
 
-#email {
+#email, #password, #name, #confirmPassword {
     background-color: #1A2226;
     border: none;
     border-bottom: 2px solid #0DB8DE;
@@ -245,19 +245,6 @@ body {
     outline: 0;
     margin-bottom: 20px;
     padding-left: 0px;
-    color: #ECF0F5;
-}
-
-#password {
-    background-color: #1A2226;
-    border: none;
-    border-bottom: 2px solid #0DB8DE;
-    border-top: 0px;
-    border-radius: 0px;
-    font-weight: bold;
-    outline: 0;
-    padding-left: 0px;
-    margin-bottom: 20px;
     color: #ECF0F5;
 }
 
