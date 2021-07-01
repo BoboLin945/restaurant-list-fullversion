@@ -19,7 +19,7 @@ router.post('/login', passport.authenticate('local', {
 // logout
 router.get('/logout', (req, res) => {
   req.logOut()
-  req.flash('success_msg', '成功登出。')
+  req.flash('success_msg', 'Logout Successful!')
   res.redirect('/users/login')
 })
 
@@ -36,7 +36,7 @@ router.post('/register', (req, res) => {
     errors.push({ message: 'EMAIL & PASSWORD & CONFIRM PASSWORD are required!' })
   }
   if (password !== confirmPassword) {
-    errors.push({ message: 'PASSWORD and CONFIRM PASSWORD must be the same！' })
+    errors.push({ message: 'Your password and confirmation password do not match.' })
   }
   if (errors.length) {
     return res.render('register', {
