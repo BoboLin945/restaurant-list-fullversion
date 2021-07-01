@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 // Require handlebars and just-handlebars-helpers
@@ -19,6 +20,13 @@ app.use(express.static('public'))
 
 // setting methodOverride
 app.use(methodOverride('_method'))
+
+// session
+app.use(session({
+  secret: 'restaurantLocalSecret',
+  resave: false,
+  saveUninitialized: true,
+}))
 
 // mongoose connect to mongoDB
 require('./config/mongoose')
