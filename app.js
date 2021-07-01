@@ -8,6 +8,8 @@ const H = require('just-handlebars-helpers')
 
 const routes = require('./routes')
 
+const usePassport = require('./config/passport')
+
 const app = express()
 // Register just-handlebars-helpers with handlebars
 H.registerHelpers(Handlebars);
@@ -27,6 +29,9 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }))
+
+// passport
+usePassport(app)
 
 // mongoose connect to mongoDB
 require('./config/mongoose')
