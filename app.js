@@ -7,6 +7,10 @@ const Handlebars = require('handlebars')
 const H = require('just-handlebars-helpers')
 const flash = require('connect-flash')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const routes = require('./routes')
 
 const usePassport = require('./config/passport')
@@ -26,7 +30,7 @@ app.use(methodOverride('_method'))
 
 // session
 app.use(session({
-  secret: 'restaurantLocalSecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }))
@@ -54,7 +58,7 @@ require('./config/mongoose')
 app.use(routes)
 
 // setting port
-app.listen(3000, () => {
-  console.log(`App is running on http://localhost:3000`)
+app.listen(process.env.PORT, () => {
+  console.log(`App is running on http://localhost:${process.env.PORT}`)
 })
 
