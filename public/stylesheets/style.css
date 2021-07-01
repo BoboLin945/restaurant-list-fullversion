@@ -158,7 +158,8 @@ header {
 
 /* login page */
 body {
-    background: #222D32;
+  background: #222D32;
+  color: antiquewhite;
 }
 
 .login-box {
