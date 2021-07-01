@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 // Require handlebars and just-handlebars-helpers
 const Handlebars = require('handlebars')
 const H = require('just-handlebars-helpers')
+const flash = require('connect-flash')
 
 const routes = require('./routes')
 
@@ -33,10 +34,16 @@ app.use(session({
 // passport
 usePassport(app)
 
+// connect-flash
+app.use(flash())
+
 // res.locals setting middleware
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
+  res.locals.login_msg = req.flash('login_msg')
   next()
 })
 
