@@ -33,6 +33,13 @@ app.use(session({
 // passport
 usePassport(app)
 
+// res.locals setting middleware
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 // mongoose connect to mongoDB
 require('./config/mongoose')
 
