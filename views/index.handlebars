@@ -5,11 +5,11 @@
   <div class="d-flex justify-content-between flex-wrap mb-2">
     <form class="mx-auto form-group sort" id="sort" action="/restaurants/sort" method="POST">
       <select class="form-control" id="sortForm" name="sort" onchange="this.form.submit()">
-        <option name="0" value="0" {{#if (eq sortOption '0' ) }} selected {{/if}}>選擇排序方式</option>
-        <option name="1" value="1" {{#if (eq sortOption '1' ) }} selected {{/if}}>上架時間（新 -> 舊）</option>
-        <option name="2" value="2" {{#if (eq sortOption '2' ) }} selected {{/if}}>上架時間（舊 -> 新）</option>
-        <option name="3" value="3" {{#if (eq sortOption '3' ) }} selected {{/if}}>按分類排序</option>
-        <option name="4" value="4" {{#if (eq sortOption '4' ) }} selected {{/if}}>評價（高 -> 低）</option>
+        <option name="default" value="default" {{#if (eq sortOption 'default' ) }} selected {{/if}}>選擇排序方式</option>
+        <option name="desc" value="desc" {{#if (eq sortOption 'desc' ) }} selected {{/if}}>依名稱排序(z-a)</option>
+        <option name="asc" value="asc" {{#if (eq sortOption 'asc' ) }} selected {{/if}}>依名稱排序(a-z)</option>
+        <option name="category" value="category" {{#if (eq sortOption '3' ) }} selected {{/if}}>按分類排序</option>
+        <option name="rating" value="rating" {{#if (eq sortOption 'rating' ) }} selected {{/if}}>評價(高-低）</option>
       </select>
     </form>
     <form class="mx-auto search" action="/restaurants/search">
