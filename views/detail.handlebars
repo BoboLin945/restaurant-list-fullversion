@@ -1,12 +1,15 @@
 <div class="banner"></div>
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
-<div class="container">
+<div class="container" id="restaurant-detail">
   <div class="d-flex justify-content-end">
     <a class="btn btn-sm btn-outline-success mr-2" href="./{{ restaurant._id }}/edit" role="button"><i
         class="fas fa-edit"></i>Edit</a>
-    <form action="/restaurants/{{ restaurant._id }}/?_method=DELETE" method="POST">
+        <button type="button" id="delete-button" class="btn btn-sm btn-outline-danger" data-toggle="modal"
+          data-target="#deleteModal" data-id="{{ restaurant._id }}" data-name="{{ restaurant.name }}"><i
+            class="fas fa-trash-alt mr-1"></i>Delete</button>
+    {{!-- <form action="/restaurants/{{ restaurant._id }}/?_method=DELETE" method="POST">
       <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i>Delete</button>
-    </form>
+    </form> --}}
   </div>
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
@@ -47,3 +50,41 @@
     </div>
   </div>
 </div>
+
+{{!-- delete modal --}}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">Warning!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+        <form action="" method="POST" id="delete-submit">
+          <button type="submit" class="btn btn-danger">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- delete modal dataset --}}
+<script>
+  const restaurantDetail = document.querySelector('#restaurant-detail')
+  const deleteSubmit = document.querySelector('#delete-submit')
+  const content = document.querySelector('.modal-body')
+  restaurantDetail.addEventListener('click', function deleteButtonClicked() {
+    if (event.target.matches('#delete-button')) {
+      const id = event.target.dataset.id
+      const name = event.target.dataset.name
+      deleteSubmit.action = `/restaurants/${id}/?_method=DELETE`
+      content.innerHTML = `確定要刪除 「${name}」 嗎？`
+    }
+  })
+</script>
