@@ -1,5 +1,8 @@
-<!-- ABOUT THE PROJECT 2-3 A8: 重構餐廳清單 -->
-## :page_facing_up: 重構餐廳清單 
+
+<!-- ABOUT THE PROJECT 3 A1: 完成餐廳清單 -->
+## :plate_with_cutlery: 你的口袋餐廳清單 
+
+:memo: 一個專屬於自己收藏美食的餐廳清單！
 
 ### :heavy_check_mark: Features
 
@@ -19,17 +22,17 @@
   * 電話
   * 簡介
   
-3. 搜尋功能：輸入餐廳名稱、餐廳分類可搜尋餐廳
+3. 搜尋功能：使用者可以輸入餐廳名稱、餐廳分類搜尋餐廳
 
-4. 使用者可以從首頁點擊「新增」，新增一家餐廳
-
-![image](restaurant-list-new.png)
+4. 使用者可以從 nav bar 點擊「＋新增餐廳」，新增一家餐廳
 
 5. 使用者點擊「Edit」可以修改一家餐廳的資訊
 
 6. 使用者點擊「Delete」可以刪除一家餐廳
 
-7. 使用者可以根據「上架時間」、「分類」、「評分」排序方式瀏覽所有餐廳
+7. 使用者可以根據「名稱」、「分類」、「評分」篩選餐廳
+
+8. 使用者可以使用 email 註冊帳號 (email 不可重複註冊)，並使用帳號密碼登入，管理屬於自己的餐廳清單。
 
 
 <!-- GETTING STARTED -->
@@ -37,7 +40,7 @@
 
 #### Clone repository
 ```
-$ git clone https://github.com/BoboLin945/restaurant_list_A8.git
+$ git clone 
 ```
 #### Install by npm
 ```

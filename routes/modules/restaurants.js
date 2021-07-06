@@ -16,7 +16,13 @@ router.get('/search', (req, res) => {
   const regex = new RegExp(keyword, 'i') // i for case insensitive
   Restaurant.find({ userId, $or: [{ name: { $regex: regex } }, { category: { $regex: regex } }] })
     .lean()
-    .then(restaurants => res.render('index', { restaurants }))
+    .then(restaurants => {
+      let message
+      if (restaurants.length === 0) {
+        message = `Oops! 關鍵字'${keyword}' 無相關結果`
+      }
+      res.render('index', { restaurants, keyword, message })
+    })
     .catch(error => console.error(error))
 })
 
@@ -66,14 +72,14 @@ router.put('/:id', (req, res) => {
   return Restaurant.findOne({ _id, userId })
     .then(restaurant => {
       restaurant.name = name,
-        restaurant.category = category,
-        restaurant.image = image,
-        restaurant.location = location,
-        restaurant.phone = phone,
-        restaurant.google_map = google_map,
-        restaurant.rating = rating,
-        restaurant.description = description,
-        restaurant.save()
+      restaurant.category = category,
+      restaurant.image = image,
+      restaurant.location = location,
+      restaurant.phone = phone,
+      restaurant.google_map = google_map,
+      restaurant.rating = rating,
+      restaurant.description = description,
+      restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${_id}`))
     .catch(error => console.log(error))
@@ -89,6 +95,7 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// Sort
 router.post('/sort', function (req, res) {
   const sortOption = req.body.sort
   const userId = req.user._id
@@ -102,15 +109,15 @@ router.post('/sort', function (req, res) {
 // sorting function
 function getSortMethod(sortOption) {
   if (sortOption === 'desc') {
-    return { _id: 'desc' }
+    return { name: 'desc' }
   } else if (sortOption === 'asc') {
-    return { _id: 'asc' }
+    return { name: 'asc' }
   } else if (sortOption === 'category') {
     return { category: 'asc' }
   } else if (sortOption === 'rating') {
     return { rating: -1 }
   } else if (sortOption === 'default') {
-    return { _id: 'asc' }
+    return { name: 'asc' }
   }
 }
 
