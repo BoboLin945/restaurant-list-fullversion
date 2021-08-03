@@ -1,5 +1,5 @@
-
 <!-- ABOUT THE PROJECT 3 A1: 完成餐廳清單 -->
+
 ## :plate_with_cutlery: 你的口袋餐廳清單 
 
 :memo: 一個專屬於自己收藏美食的餐廳清單！
@@ -12,7 +12,7 @@
   * 分類
   * 評分
 
-![image](restaurant-list-index.png)
+![image](restaurant-list-fullversion-index.png)
   
 2. 使用者可以點擊餐廳圖片瀏覽餐廳詳細資訊
   * 照片
@@ -34,6 +34,7 @@
 
 8. 使用者可以使用 email 註冊帳號 (email 不可重複註冊)，並使用帳號密碼登入，管理屬於自己的餐廳清單。
 
+![image](restaurant-list-fullversion-login.png)
 
 <!-- GETTING STARTED -->
 ## :bulb: Getting Started
