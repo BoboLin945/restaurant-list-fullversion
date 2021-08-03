@@ -7,20 +7,6 @@ const User = require('../user')
 const restaurants = require('../../restaurant.json').results
 const db = require('../../config/mongoose')
 
-// const user1 = []
-// for (let i = 0; i < restaurants.results.length; i++) {
-//   if (restaurants.results[i].id < 4) {
-//     user1.push(restaurants.results[i])
-//   }
-// }
-
-// const user2 = []
-// for (let i = 0; i < restaurants.results.length; i++) {
-//   if (restaurants.results[i].id > 3 && restaurants.results[i].id < 7 ) {
-//     user2.push(restaurants.results[i])
-//   }
-// }
-
 const SEED_USERS = [
   {
     name: 'USER NO.1',
