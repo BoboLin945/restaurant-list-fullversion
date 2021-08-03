@@ -1,7 +1,7 @@
 // 引用 express & express router
 const express = require('express')
 const router = express.Router()
-// 引用 Todo model
+// 引用 Restaurant model
 const Restaurant = require('../../models/restaurant')
 
 // define restaurants route
@@ -19,7 +19,7 @@ router.get('/search', (req, res) => {
     .then(restaurants => {
       let message
       if (restaurants.length === 0) {
-        message = `Oops! 關鍵字'${keyword}' 無相關結果`
+        message = `Oops! 關鍵字'${keyword}' 無相關結果！`
       }
       res.render('index', { restaurants, keyword, message })
     })

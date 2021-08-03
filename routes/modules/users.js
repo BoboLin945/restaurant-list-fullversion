@@ -57,17 +57,18 @@ router.post('/register', (req, res) => {
           password,
           confirmPassword
         })
+      } else {
+        return bcrypt
+          .genSalt(10)
+          .then(salt => bcrypt.hash(password, salt))
+          .then(hash => User.create({
+            name,
+            email,
+            password: hash,
+          }))
+          .then(() => res.redirect('/'))
+          .catch(error => console.log(error))
       }
-      return bcrypt
-        .genSalt(10)
-        .then(salt => bcrypt.hash(password, salt))
-        .then(hash => User.create({
-          name,
-          email,
-          password: hash,
-        }))
-        .then(() => res.redirect('/'))
-        .catch(error => console.log(error))
     })
 })
 

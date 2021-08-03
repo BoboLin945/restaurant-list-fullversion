@@ -24,7 +24,7 @@ module.exports = app => {
               return done(null, user)
             })
           })
-          .catch(error => console.log(error))
+          .catch(err => done(err, false))
     }))
 
   // facebook login
@@ -34,8 +34,8 @@ module.exports = app => {
     callbackURL: process.env.FACEBOOK_CALLBACK,
     profileFields: ['email', 'displayName']
   }, (accessToken, refreshToken, profile, done) => {
-    const {email, name} = profile._json
-    User.findOne({email})
+    const { email, name } = profile._json
+    User.findOne({ email })
       .then(user => {
         if (user) { return done(null, user)}
         const randomPassword = Math.random().toString(36).slice(-8)
@@ -49,7 +49,7 @@ module.exports = app => {
               password: hash
             })
           .then(user => done(null, user))
-          .catch(error => done(error, false))
+          .catch(err => done(err, false))
           })
       })
   }))
