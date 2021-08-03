@@ -50,12 +50,13 @@ router.post('/register', (req, res) => {
   User.findOne({ email })
     .then(user => {
       if (user) {
-        req.flash('warning_msg', 'Email is registered!')
+        errors.push({ message: 'Email is registered!'})
         res.render('register', {
           name,
           email,
           password,
-          confirmPassword
+          confirmPassword,
+          errors
         })
       } else {
         return bcrypt
